@@ -12,6 +12,7 @@ Nesta fase inicial, explorei a aplicação para entender o fluxo de navegação 
 * **Estado Vazio (Empty State):** Ao acessar a listagem sem dados, a tela fica totalmente em branco abaixo do título. Recomenda-se exibir uma mensagem informativa (ex: "Nenhum curso cadastrado") para confirmar que a página carregou corretamente.
 * **Feedback de Navegação:** O menu superior não possui um indicador visual (como uma cor diferente) para mostrar qual página está ativa no momento.
 * **Ausência de Indicadores de Obrigatoriedade:** Notei que o formulário de cadastro não utiliza sinalizações visuais padrão (como o asterisco `*`) para indicar quais campos são obrigatórios. Isso força o usuário a submeter o formulário para descobrir quais informações são essenciais, o que prejudica a usabilidade (UX).
+* **Falha de Responsividade (Mobile):** Ao simular o uso em dispositivos móveis (ex: iPhone 12 Pro), a aplicação apresenta quebras críticas de layout. O logotipo no cabeçalho sofre truncamento ("Beedoo" torna-se "Be..."), os elementos do menu ficam sobrepostos e o grid não se adapta ao tamanho da tela (*viewport*), indicando a ausência de **Media Queries** adequadas.
 
 ### ⚙️ Observações Funcionais
 
