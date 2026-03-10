@@ -11,6 +11,7 @@ Nesta fase inicial, explorei a aplicação para entender o fluxo de navegação 
 * **Feedback de Carregamento (Ponto Positivo):** A aplicação utiliza um ícone de carregamento (spinner) enquanto as imagens dos cards são processadas. Isso é uma boa prática de UX, pois informa ao usuário que o sistema está em atividade.
 * **Estado Vazio (Empty State):** Ao acessar a listagem sem dados, a tela fica totalmente em branco abaixo do título. Recomenda-se exibir uma mensagem informativa (ex: "Nenhum curso cadastrado") para confirmar que a página carregou corretamente.
 * **Feedback de Navegação:** O menu superior não possui um indicador visual (como uma cor diferente) para mostrar qual página está ativa no momento.
+* **Ausência de Indicadores de Obrigatoriedade:** Notei que o formulário de cadastro não utiliza sinalizações visuais padrão (como o asterisco `*`) para indicar quais campos são obrigatórios. Isso força o usuário a submeter o formulário para descobrir quais informações são essenciais, o que prejudica a usabilidade (UX).
 
 ### ⚙️ Observações Funcionais
 
