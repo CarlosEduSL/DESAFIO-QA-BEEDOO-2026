@@ -62,3 +62,13 @@ Abaixo estão detalhados os problemas identificados durante a execução dos tes
     3. Clicar em "CADASTRAR CURSO".
 * **Resultado Atual:** O sistema exibe mensagem de "Curso cadastrado com sucesso!" e renderiza um card vazio na lista, contendo apenas os labels estáticos.
 * **Resultado Esperado:** O sistema deve impedir o envio e sinalizar quais campos são obrigatórios (pelo menos Nome, Instrutor e Datas).
+
+### **BUG-04: Permissão de registros duplicados**
+* **Severidade:** Baixa/Média (Gera redundância e poluição de dados).
+* **Título:** Sistema não valida a existência de cursos duplicados no cadastro.
+* **Passos para reproduzir:**
+    1. Acessar a tela de cadastro.
+    2. Preencher os campos com dados de um curso já cadastrado anteriormente.
+    3. Clicar em "CADASTRAR CURSO".
+* **Resultado Atual:** O sistema realiza o cadastro e exibe dois cards idênticos na lista de cursos.
+* **Resultado Esperado:** O sistema deve validar se já existe um curso com os mesmos dados (nome/instrutor) e impedir a criação de duplicatas.
