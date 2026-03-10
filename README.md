@@ -25,3 +25,20 @@ Com base na estrutura do formulário de cadastro, selecionei os seguintes pontos
 2. **Consistência de Dados Numéricos:** Verificar se o campo "Número de vagas" aceita valores negativos, decimais ou caracteres não numéricos.
 3. **Validação de URL de Imagem:** Checar se o campo aceita qualquer texto aleatório ou se exige um formato de link válido (http/https) para renderização.
 4. **Segurança e Sanitização:** Testar a resistência dos campos de texto contra entradas maliciosas, como injeção de scripts (XSS).
+
+---
+
+## 🐞 3. Relatório de Bugs Encontrados
+
+Abaixo estão detalhados os problemas identificados durante a execução dos testes.
+
+### **BUG-01: Ausência de validação cronológica no campo de datas**
+* **Severidade:** Média (Impacta a integridade dos dados e lógica de negócio).
+* **Título:** Sistema permite cadastro de cursos com data de término retroativa à data de início.
+* **Passos para reproduzir:**
+    1. Acessar a tela de cadastro.
+    2. Preencher os campos obrigatórios.
+    3. Definir a **Data de início** (ex: 10/03/2026) e uma **Data de fim** anterior (ex: 01/03/2026).
+    4. Clicar em "CADASTRAR CURSO".
+* **Resultado Atual:** O sistema exibe mensagem de sucesso e cadastra o curso com datas logicamente impossíveis.
+* **Resultado Esperado:** O sistema deve validar que a data de fim seja posterior à de início e exibir uma mensagem de erro impedindo o cadastro.
