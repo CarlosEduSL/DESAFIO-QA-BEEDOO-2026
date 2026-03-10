@@ -42,3 +42,13 @@ Abaixo estão detalhados os problemas identificados durante a execução dos tes
     4. Clicar em "CADASTRAR CURSO".
 * **Resultado Atual:** O sistema exibe mensagem de sucesso e cadastra o curso com datas logicamente impossíveis.
 * **Resultado Esperado:** O sistema deve validar que a data de fim seja posterior à de início e exibir uma mensagem de erro impedindo o cadastro.
+
+### **BUG-02: Falha na validação de valores mínimos (Vagas)**
+* **Severidade:** Média (Gera inconsistência nos dados de inventário).
+* **Título:** Sistema permite o cadastro de cursos com número de vagas negativo.
+* **Passos para reproduzir:**
+    1. Acessar a tela de cadastro.
+    2. No campo "Número de vagas", inserir um valor negativo (ex: -50) manualmente ou via controles do campo (stepper).
+    3. Preencher os demais campos e clicar em "CADASTRAR CURSO".
+* **Resultado Atual:** O sistema cadastra o curso com sucesso e exibe o valor negativo no card da listagem.
+* **Resultado Esperado:** O sistema deve restringir o campo para aceitar apenas números inteiros e positivos (mínimo 0 ou 1).
