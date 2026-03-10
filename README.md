@@ -72,3 +72,15 @@ Abaixo estão detalhados os problemas identificados durante a execução dos tes
     3. Clicar em "CADASTRAR CURSO".
 * **Resultado Atual:** O sistema realiza o cadastro e exibe dois cards idênticos na lista de cursos.
 * **Resultado Esperado:** O sistema deve validar se já existe um curso com os mesmos dados (nome/instrutor) e impedir a criação de duplicatas.
+
+### **BUG-05: Falha na exclusão de registros (Falso Positivo)**
+* **Severidade:** Crítica (Ação funcional não é persistida).
+* **Título:** Sistema exibe mensagem de sucesso na exclusão, mas não remove o registro da base.
+* **Passos para reproduzir:**
+    1. Acessar a tela de listagem.
+    2. Localizar um curso (ex: o card em branco criado anteriormente).
+    3. Clicar no botão "EXCLUIR CURSO".
+    4. Observar a mensagem de feedback e a permanência do card.
+    5. Atualizar a página (F5).
+* **Resultado Atual:** O sistema exibe o alerta verde de sucesso, mas o card não é removido da interface e permanece salvo no banco de dados após o recarregamento.
+* **Resultado Esperado:** O curso deve ser removido permanentemente da base de dados e desaparecer da listagem imediatamente após a confirmação.
