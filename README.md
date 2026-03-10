@@ -52,3 +52,13 @@ Abaixo estão detalhados os problemas identificados durante a execução dos tes
     3. Preencher os demais campos e clicar em "CADASTRAR CURSO".
 * **Resultado Atual:** O sistema cadastra o curso com sucesso e exibe o valor negativo no card da listagem.
 * **Resultado Esperado:** O sistema deve restringir o campo para aceitar apenas números inteiros e positivos (mínimo 0 ou 1).
+
+### **BUG-03: Ausência total de validação de campos obrigatórios**
+* **Severidade:** Alta (Compromete a integridade do banco de dados).
+* **Título:** Sistema permite o cadastro de cursos com todos os campos vazios.
+* **Passos para reproduzir:**
+    1. Acessar a tela de cadastro.
+    2. Não preencher nenhum campo (Nome, Instrutor, Datas, etc).
+    3. Clicar em "CADASTRAR CURSO".
+* **Resultado Atual:** O sistema exibe mensagem de "Curso cadastrado com sucesso!" e renderiza um card vazio na lista, contendo apenas os labels estáticos.
+* **Resultado Esperado:** O sistema deve impedir o envio e sinalizar quais campos são obrigatórios (pelo menos Nome, Instrutor e Datas).
