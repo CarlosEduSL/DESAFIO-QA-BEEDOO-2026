@@ -16,7 +16,7 @@ Nesta fase inicial, explorei a aplicação para entender o fluxo de navegação 
 
 ### ⚙️ Observações Funcionais
 
-* **Fluxo de Exclusão:** Identifiquei a presença do botão **"EXCLUIR CURSO"**. Este é um ponto de atenção crítico: pretendo validar se o sistema solicita uma confirmação do usuário antes de deletar o curso, evitando exclusões acidentais.
+* **Fluxo de Exclusão:** Identifiquei a presença do botão **"EXCLUIR CURSO"**. Inicialmente mapeado como ponto de atenção, os testes revelaram que o sistema não apenas carece de confirmação de segurança, como também falha em persistir a ação (ver BUG-05).
 
 ### 🎯 Pontos Críticos Estratégicos para Teste
 
@@ -24,8 +24,8 @@ Com base na estrutura do formulário de cadastro, selecionei os seguintes pontos
 
 1. **Lógica de Regras de Negócio (Datas):** Validar se o sistema impede que a "Data de fim" seja configurada para um dia anterior à "Data de início".
 2. **Consistência de Dados Numéricos:** Verificar se o campo "Número de vagas" aceita valores negativos, decimais ou caracteres não numéricos.
-3. **Validação de URL de Imagem:** Checar se o campo aceita qualquer texto aleatório ou se exige um formato de link válido (http/https) para renderização.
-4. **Segurança e Sanitização:** Testar a resistência dos campos de texto contra entradas maliciosas, como injeção de scripts (XSS).
+3. **Validação de Campos Obrigatórios:** Checar se o sistema permite salvar registros vazios.
+4. **Persistência de Dados:** Garantir que as ações de cadastro e exclusão reflitam corretamente no banco de dados.
 
 ---
 
@@ -85,3 +85,26 @@ Abaixo estão detalhados os problemas identificados durante a execução dos tes
     5. Atualizar a página (F5).
 * **Resultado Atual:** O sistema exibe o alerta verde de sucesso, mas o card não é removido da interface e permanece salvo no banco de dados após o recarregamento.
 * **Resultado Esperado:** O curso deve ser removido permanentemente da base de dados e desaparecer da listagem imediatamente após a confirmação.
+
+---
+
+## 🛠️ 4. Ferramentas Utilizadas
+* **Google Sheets:** Para criação da Matriz de Casos de Teste.
+* **Google Drive:** Para organização de evidências (Prints).
+* **Chrome DevTools:** Para análise de responsividade mobile e inspeção de elementos.
+
+---
+
+## 🔗 Documentação Complementar
+
+| Documento | Link de Acesso |
+| :--- | :--- |
+| **Planilha de Casos de Teste** | [Acessar Matriz de Testes](https://docs.google.com/spreadsheets/d/1PkpMztL9h-ajI8Lm9AmewpTbPt6lXNKbwmuCZ9u4dlQ/edit?usp=sharing) |
+| **Pasta de Evidências** | [Ver Prints e Provas Visuais](https://drive.google.com/drive/folders/1gdQV54wJAE-WvZICqzMhc2zlg7IK87rf?usp=sharing) |
+
+---
+
+## 📅 5. Status Final da Execução
+* **Total de Casos de Teste:** 06
+* **Passou:** 01
+* **Falhou:** 05
