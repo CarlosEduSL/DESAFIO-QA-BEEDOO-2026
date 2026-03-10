@@ -4,18 +4,23 @@
 
 Nesta fase inicial, explorei a aplicação para entender o fluxo de navegação e a consistência da interface. Foquei em identificar pontos que podem impactar a experiência do usuário ou a credibilidade do sistema.
 
-### 📋 Observações de UI/UX (Interface e Experiência)
+### 📋 Observações de UI/UX e Interface
 
-* **Erro de Digitação (Typo):** Identifiquei que no cabeçalho a palavra **"Challenge"** está escrita incorretamente como **"Chalenge"**. Erros desse tipo, embora simples, podem passar uma impressão de falta de cuidado no desenvolvimento final.
-* **Alinhamento e Layout:** Notei que o título **"Lista de cursos"** não possui um alinhamento centralizado ou uma estrutura de grid definida. O texto parece "solto" na tela, o que quebra a hierarquia visual e prejudica a estética da página.
-* **Estado Vazio (Empty State):** Ao acessar a listagem sem dados, a tela fica totalmente em branco abaixo do título. Como boa prática de UX, o sistema deveria exibir uma mensagem informativa (ex: "Nenhum curso cadastrado no momento") para que o usuário tenha certeza de que a página carregou corretamente.
-* **Feedback de Navegação:** O menu superior funciona, mas não há um indicador visual (como uma cor diferente ou sublinhado) que mostre em qual página o usuário está no momento (página ativa).
+* **Erro de Digitação (Typo):** Identifiquei que no cabeçalho a palavra **"Challenge"** está escrita incorretamente como **"Chalenge"**. Erros desse tipo, embora simples, afetam a percepção de cuidado no desenvolvimento final.
+* **Alinhamento e Layout:** Notei que o título "Lista de cursos" e os cards renderizados não possuem um alinhamento centralizado ou uma estrutura de grid definida. O conteúdo parece "solto" e deslocado para a esquerda, o que prejudica a estética em telas maiores.
+* **Feedback de Carregamento (Ponto Positivo):** A aplicação utiliza um ícone de carregamento (spinner) enquanto as imagens dos cards são processadas. Isso é uma boa prática de UX, pois informa ao usuário que o sistema está em atividade.
+* **Estado Vazio (Empty State):** Ao acessar a listagem sem dados, a tela fica totalmente em branco abaixo do título. Recomenda-se exibir uma mensagem informativa (ex: "Nenhum curso cadastrado") para confirmar que a página carregou corretamente.
+* **Feedback de Navegação:** O menu superior não possui um indicador visual (como uma cor diferente) para mostrar qual página está ativa no momento.
+
+### ⚙️ Observações Funcionais
+
+* **Fluxo de Exclusão:** Identifiquei a presença do botão **"EXCLUIR CURSO"**. Este é um ponto de atenção crítico: pretendo validar se o sistema solicita uma confirmação do usuário antes de deletar o curso, evitando exclusões acidentais.
 
 ### 🎯 Pontos Críticos Estratégicos para Teste
 
 Com base na estrutura do formulário de cadastro, selecionei os seguintes pontos como prioridade para garantir a integridade dos dados:
 
 1. **Lógica de Regras de Negócio (Datas):** Validar se o sistema impede que a "Data de fim" seja configurada para um dia anterior à "Data de início".
-2. **Consistência de Dados Numéricos:** Verificar se o campo "Número de vagas" aceita valores negativos, decimais ou caracteres não numéricos, o que poderia gerar erros de processamento.
-3. **Validação de URL de Imagem:** Checar se o campo aceita qualquer texto aleatório ou se exige um formato de link válido (http/https) para garantir que a imagem seja renderizada corretamente na listagem.
-4. **Segurança e Sanitização:** Testar a resistência dos campos de texto (Nome e Descrição) contra entradas maliciosas, como injeção de scripts (XSS) ou caracteres especiais que possam quebrar o layout.
+2. **Consistência de Dados Numéricos:** Verificar se o campo "Número de vagas" aceita valores negativos, decimais ou caracteres não numéricos.
+3. **Validação de URL de Imagem:** Checar se o campo aceita qualquer texto aleatório ou se exige um formato de link válido (http/https) para renderização.
+4. **Segurança e Sanitização:** Testar a resistência dos campos de texto contra entradas maliciosas, como injeção de scripts (XSS).
